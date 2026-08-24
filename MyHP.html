@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на мой ДР!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1>Секретное Мероприятие 🎭</h1>
+        <h2>Мне исполняется 16</h2>
+        
+        <p class="description">
+            и это приглашение для тебя
+        </p>
+
+        <div class="info">
+            <p><strong>📅 Когда:</strong> 4 ноября 2026 года</p>
+            <p><strong>📍 Где:</strong> Ханты-Мансийск</p>
+        </div>
+
+        <!-- Форма для ввода имени гостя -->
+        <div class="form-group">
+            <input type="text" id="guestName" placeholder="Введи свое имя/ник" required>
+            <button class="btn" onclick="sendInvitation()">Я ПРИДУ! 🔥</button>
+        </div>
+    </div>
+
+    <script>
+        function sendInvitation() {
+            const name = document.getElementById('guestName').value.trim();
+            
+            if (name === "") {
+                alert("Пожалуйста, введи свое имя, чтобы я записал тебя в список! 👀");
+                return;
+            }
+
+            // Твой токен уже на базе, осталось только вставить твой личный CHAT_ID ниже:
+            const telegramToken = '8452600072:AAH-9lZMwc1WBTUBnJ9F3WXYiA9Y6crm3a0';
+            const chatId = '8734549741'; 
+
+            const text = `🎉 Новый гость на ДР!\n\nИмя: *${name}* подтвердил, что придёт!`;
+            const url = `https://telegram.org{telegramToken}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert(`Ура, ${name}! Я записал тебя, жду в ноябре! 🎉`);
+                    document.getElementById('guestName').value = "";
+                } else {
+                    alert("Что-то пошло не так, проверь CHAT_ID или запусти бота командой /start... 🛠️");
+                }
+            })
+            .catch(error => {
+                alert("Ошибка сети. Проверь интернет. 🌐");
+            });
+        }
+    </script>
+
+</body>
+</html>
