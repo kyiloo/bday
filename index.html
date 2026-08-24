@@ -42,7 +42,7 @@
             const chatId = '8734549741'; 
 
             const text = `🎉 Новый гость на ДР!\n\nИмя: *${name}* подтвердил, что придёт!`;
-            const url = `https://telegram.org{telegramToken}/sendMessage`;
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
 
             fetch(url, {
                 method: 'POST',
