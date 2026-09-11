@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вторая страница</title>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* === СТРОЧКА ТЕКСТА С НЕОНОМ === */
+        .neon-text-two {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+            /* Голубое неоновое свечение */
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #00ffff,
+                0 0 40px #00ffff,
+                0 0 60px #00ffff,
+                0 0 80px #00ffff;
+            margin-bottom: 50px;
+        }
+
+        /* Кнопка возврата назад */
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: transparent;
+            color: #ff007f;
+            border: 1px solid #ff007f;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 5px #ff007f;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #0b0c10;
+            background: #ff007f;
+            box-shadow: 0 0 20px #ff007f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Вот выделенная строчка с текстом второй страницы -->
+    <h1 class="neon-text-two">люблю тебя дурында</h1>
+
+    <!-- Ссылка для возврата на первую страницу -->
+    <a href="index.html" class="back-btn">Назад</a>
+
+</body>
+</html>
