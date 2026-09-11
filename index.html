@@ -3,71 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на мой ДР!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Главная</title>
+    <style>
+        body {
+            background-color: #0d0e12;
+            color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            letter-spacing: -0.5px;
+        }
+
+        /* === СТРОЧКА ТЕКСТА: Мягкий неоновый минимализм === */
+        .neon-text {
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+            /* Деликатное, не бьющее в глаза розовое свечение */
+            text-shadow: 
+                0 0 10px rgba(255, 0, 127, 0.5),
+                0 0 25px rgba(255, 0, 127, 0.3);
+            margin-bottom: 40px;
+        }
+
+        /* Кнопка "Дальше": Сбалансированный акцент */
+        .neon-btn {
+            padding: 12px 30px;
+            font-size: 0.95rem;
+            background: transparent;
+            color: #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        /* Плавное раскрытие неона при наведении */
+        .neon-btn:hover {
+            color: #0d0e12;
+            background: #00ffff;
+            border-color: #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        }
+    </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Секретное Мероприятие 🎭</h1>
-        <h2>Мне исполняется 16</h2>
-        
-        <p class="description">
-            и это приглашение для тебя
-        </p>
+    <!-- Выделенная строчка без капса и мигания -->
+    <h1 class="neon-text">прости меня пожалуйста</h1>
 
-        <div class="info">
-            <p><strong>📅 Когда:</strong> 4 ноября 2026 года</p>
-            <p><strong>📍 Где:</strong> Ханты-Мансийск</p>
-        </div>
-
-        <!-- Форма для ввода имени гостя -->
-        <div class="form-group">
-            <input type="text" id="guestName" placeholder="Введи свое имя/ник" required>
-            <button class="btn" onclick="sendInvitation()">Я ПРИДУ! 🔥</button>
-        </div>
-    </div>
-
-    <script>
-        function sendInvitation() {
-            const name = document.getElementById('guestName').value.trim();
-            
-            if (name === "") {
-                alert("Пожалуйста, введи свое имя, чтобы я записал тебя в список! 👀");
-                return;
-            }
-
-            // Твой токен уже на базе, осталось только вставить твой личный CHAT_ID ниже:
-            const telegramToken = '8452600072:AAH-9lZMwc1WBTUBnJ9F3WXYiA9Y6crm3a0';
-            const chatId = '8734549741'; 
-
-            const text = `🎉 Новый гость на ДР!\n\nИмя: *${name}* подтвердил, что придёт!`;
-            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: text,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert(`Ура, ${name}! Я записал тебя, жду в ноябре! 🎉`);
-                    document.getElementById('guestName').value = "";
-                } else {
-                    alert("Что-то пошло не так, проверь CHAT_ID или запусти бота командой /start... 🛠️");
-                }
-            })
-            .catch(error => {
-                alert("Ошибка сети. Проверь интернет. 🌐");
-            });
-        }
-    </script>
+    <!-- Кнопка перехода -->
+    <a href="love.html" class="neon-btn">дальше</a>
 
 </body>
 </html>
